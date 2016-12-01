@@ -1,7 +1,7 @@
 require 'currency/version'
 require 'currency/configuration'
 require 'currency/operations'
-require 'currency/Comparator'
+require 'currency/comparator'
 require 'currency/inspector'
 
 module Currency
