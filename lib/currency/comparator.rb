@@ -1,17 +1,17 @@
 module Comparator
-  # TODO
   def ==(other)
-    return amount.eql? other.amount if currency == other.currency
+    return other.amount.eql? convert_to(other.currency).amount if currency != other.currency
+    amount.eql? other.amount
   end
 
-  # TODO
   def <(other)
-    return amount > other.amount if currency == other.currency
+    return other.amount > convert_to(other.currency).amount if currency != other.currency
+    amount < other.amount
   end
 
-  # TODO
   def >(other)
-    return amount < other.amount if currency == other.currency
+    return other.amount < convert_to(other.currency).amount if currency != other.currency
+    amount > other.amount
   end
 
   alias eql? ==
