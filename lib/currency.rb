@@ -1,6 +1,8 @@
 require 'currency/version'
 require 'currency/configuration'
 require 'currency/operations'
+require 'currency/Comparator'
+require 'currency/inspector'
 
 module Currency
   class << self
@@ -13,10 +15,12 @@ module Currency
 
   class Money
     include Operations
+    include Inspector
+    include Comparator
     attr_accessor :amount, :currency
 
     def initialize(amount, currency)
-      @amount = amount
+      @amount = amount.round(2)
       @currency = currency
     end
   end
