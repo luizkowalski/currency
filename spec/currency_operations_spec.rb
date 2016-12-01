@@ -47,14 +47,14 @@ describe Currency do
         fifty_eur = Currency::Money.new(50, 'EUR')
         twenty_dolar = Currency::Money.new(20, 'USD')
         sum = fifty_eur + twenty_dolar
-        expect(sum.amount).to be_eql 68.02
+        expect(sum).to be_eql Currency::Money.new(68.02, 'EUR')
       end
 
       it 'subtract the right amount' do
         fifty_eur = Currency::Money.new(50, 'EUR')
         twenty_dolar = Currency::Money.new(20, 'USD')
         sum = fifty_eur - twenty_dolar
-        expect(sum.amount).to be_eql 31.98
+        expect(sum).to be_eql Currency::Money.new(31.98, 'EUR')
       end
     end
   end

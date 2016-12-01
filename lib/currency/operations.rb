@@ -6,20 +6,12 @@ module Operations
   end
 
   def +(other)
-    other_amount = if other.currency != currency
-                     other.amount / Currency.configuration.options[other.currency]
-                   else
-                     other.amount
-                   end
+    other_amount = calculate_relative_amount(other)
     Currency::Money.new(amount + other_amount, currency)
   end
 
   def -(other)
-    other_amount = if other.currency != currency
-                     other.amount / Currency.configuration.options[other.currency]
-                   else
-                     other.amount
-                   end
+    other_amount = calculate_relative_amount(other)
     Currency::Money.new(amount - other_amount, currency)
   end
 
@@ -29,5 +21,15 @@ module Operations
 
   def *(other)
     Currency::Money.new(amount * other, currency)
+  end
+
+  private
+
+  def calculate_relative_amount(other)
+    if other.currency != currency
+      other.amount / Currency.configuration.options[other.currency]
+    else
+      other.amount
+    end
   end
 end
