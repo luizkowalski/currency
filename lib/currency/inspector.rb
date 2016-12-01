@@ -1,5 +1,5 @@
 module Inspector
   def inspect
-    "#{amount.round(2)} #{currency}"
+    "#{amount} #{currency}"
   end
 end
