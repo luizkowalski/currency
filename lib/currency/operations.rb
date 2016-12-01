@@ -26,7 +26,7 @@ module Operations
   private
 
   def calculate_relative_amount(other)
-    if other.currency != currency
+    if currency != other.currency
       other.amount / Currency.configuration.options[other.currency]
     else
       other.amount
