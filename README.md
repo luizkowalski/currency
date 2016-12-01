@@ -1,3 +1,6 @@
+[![Build
+Status](https://travis-ci.org/luizkowalski/currency.svg?branch=master)](https://travis-ci.org/luizkowalski/currency)
+
 # Currency
 
 Don't mind me, I'm just for tests ;)
