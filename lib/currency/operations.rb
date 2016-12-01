@@ -10,8 +10,8 @@ module Operations
   end
 
   def +(other)
+    other = other.convert_to(currency) if other.currency != currency
     return Currency::Money.new(amount + other.amount, currency) if other.currency == currency
-    converted = nil
   end
 
   def ==(other)
